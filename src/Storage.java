@@ -3,5 +3,15 @@ import java.util.List;
 
 
 public abstract class Storage<T> {
-	List<T> lstProducts = new LinkedList<T>();
+	protected List<T> lstProducts = new LinkedList<T>();
+	protected final int maxLstSize;
+	
+	public Storage(int size) {
+		this.maxLstSize = size;
+	}
+
+	public List<T> getLstProducts() {
+		return lstProducts;
+	}
+	
 }

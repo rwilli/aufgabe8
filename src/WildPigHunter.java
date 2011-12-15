@@ -1,9 +1,22 @@
+import java.util.List;
 
-public class WildPigHunter extends Employee {
 
-	public WildPigHunter(String name) {
+public class WildPigHunter extends Employee implements Runnable {
+	private final int countHunting;
+	
+	public WildPigHunter(String name, int size) {
 		super(name);
-		// TODO Auto-generated constructor stub
+		this.countHunting = size;
+	}
+
+	@Override
+	public void run() {
+		System.out.println(this + " is hunting...");
+	}
+
+	@Override
+	public String toString() {
+		return "WildPigHunter: " + this.name + ", " + this.countHunting;
 	}
 
 }
