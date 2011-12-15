@@ -14,4 +14,8 @@ public abstract class Storage<T> {
 		return lstProducts;
 	}
 	
+	public void addProduct(T element) {
+		this.lstProducts.add(element);
+	}
+	
 }

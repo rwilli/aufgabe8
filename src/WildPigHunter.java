@@ -1,12 +1,12 @@
-import java.util.List;
-
 
 public class WildPigHunter extends Employee implements Runnable {
 	private final int countHunting;
+	private RefrigeratedWarehouse<WildPig> st;
 	
-	public WildPigHunter(String name, int size) {
+	public WildPigHunter(String name, int size, RefrigeratedWarehouse<WildPig> st) {
 		super(name);
 		this.countHunting = size;
+		this.st = st;
 	}
 
 	@Override

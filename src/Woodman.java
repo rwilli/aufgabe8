@@ -1,9 +1,12 @@
 
 public class Woodman extends Employee implements Runnable {
+	private Table<WildPigRoast> t;
+	private StonePit<ChristmasTree> s;
 
-	public Woodman(String name) {
+	public Woodman(String name, Table<WildPigRoast> t, StonePit<ChristmasTree> s) {
 		super(name);
-		// TODO Auto-generated constructor stub
+		this.t = t;
+		this.s = s;
 	}
 
 	@Override
