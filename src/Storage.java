@@ -18,7 +18,7 @@ public abstract class Storage<T> {
 		return this.maxLstSize;
 	}
 	
-	public synchronized void addProduct(T element) {
+	synchronized public void addProduct(T element) {
 		// TODO place exception if number > as size
 		System.out.println("storing...");	
 		
