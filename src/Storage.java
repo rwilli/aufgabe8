@@ -22,9 +22,9 @@ public abstract class Storage<T> {
 		// TODO place exception if number > as size
 		System.out.println("storing...");	
 		
-		if (this.lstProducts.size() < this.maxLstSize)
+		if (this.lstProducts.size() < this.maxLstSize) {
 			this.lstProducts.add(element);
-		else {
+		} else {
 			// no place in storage
 			System.out.println("no place!!!");
 			
