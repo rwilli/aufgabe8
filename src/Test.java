@@ -29,9 +29,9 @@ public class Test {
 		Logistician l1 = new Logistician("Logistician1", sp1, vs1);
 		Logistician l2 = new Logistician("Logistician2", sp1, vs1);
 		
-		Thread td1 = new Thread(wph1);
-		Thread td2 = new Thread(wph2);
-		Thread td3 = new Thread(wph3);
+		//Thread td1 = new Thread(wph1);
+		//Thread td2 = new Thread(wph2);
+		//Thread td3 = new Thread(wph3);
 		Thread td4 = new Thread(ck1);
 		Thread td5 = new Thread(wm1);
 		Thread td6 = new Thread(wm2);
@@ -41,9 +41,9 @@ public class Test {
 		Thread td10 = new Thread(l1);
 		Thread td11 = new Thread(l2);
 		
-		td1.start();
-	    td2.start();
-	    td3.start();
+		//td1.start();
+	    //td2.start();
+	    //td3.start();
 	    td4.start();
 	    /*td5.start();
 	    td6.start();
