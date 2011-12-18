@@ -29,44 +29,6 @@ public class Test {
 		Logistician l1 = new Logistician("Logistician1", sp1, vs1);
 		Logistician l2 = new Logistician("Logistician2", sp1, vs1);
 		
-		//Thread td1 = new Thread(wph1);
-		//Thread td2 = new Thread(wph2);
-		//Thread td3 = new Thread(wph3);
-		Thread td4 = new Thread(ck1);
-		Thread td5 = new Thread(wm1);
-		Thread td6 = new Thread(wm2);
-		Thread td7 = new Thread(wm3);
-		Thread td8 = new Thread(wm4);
-		Thread td9 = new Thread(wm5);
-		Thread td10 = new Thread(l1);
-		Thread td11 = new Thread(l2);
-		
-		//td1.start();
-	    //td2.start();
-	    //td3.start();
-	    td4.start();
-	    /*td5.start();
-	    td6.start();
-	    td7.start();
-	    td8.start();
-	    td9.start();
-	    td10.start();
-	    td11.start();*/
-	    
-	    try {
-			Thread.sleep(20);
-			/*Thread.sleep(100);
-			//td2.sleep(5);
-			//td3.sleep(10);*/
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-	    System.out.println(rw1.lstProducts.size());
-	    System.out.println(t1.lstProducts.size());
-	    System.out.println(sp1.lstProducts.size());
-	    System.out.println(vs1.lstProducts.size());
 	}
 
 }
