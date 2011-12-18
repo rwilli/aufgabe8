@@ -31,7 +31,12 @@ public class Woodman extends Employee implements Runnable {
 			e.printStackTrace();
 		}
 		
-		this.s.addProduct(new ChristmasTree());
+		try {
+			this.s.addProduct(new ChristmasTree());
+		} catch (FullStorageException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	@Override

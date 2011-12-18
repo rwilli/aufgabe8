@@ -15,16 +15,27 @@ public class WildPigHunter extends Employee implements Runnable {
 	@Override
 	public void run() {
 		// TODO exception werfen wenn countHunting Ÿberschritten wird
-		System.out.println(this + " is hunting...");
+		int counter = 0;
 		
-		try {
-			Thread.sleep(100);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		while (counter < this.countHunting) {
+			System.out.println(this + " is hunting...");
+			
+			try {
+				Thread.sleep(100);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			try {
+				this.st.addProduct(new WildPig());
+			} catch (FullStorageException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			counter++;
 		}
-		
-		this.st.addProduct(new WildPig());
 	}
 
 	@Override

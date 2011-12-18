@@ -31,11 +31,16 @@ public class Cook extends Employee implements Runnable {
 			e.printStackTrace();
 		}
 		
-		this.t.addProduct(new WildPigRoast());
-		this.t.addProduct(new WildPigRoast());
-		this.t.addProduct(new WildPigRoast());
-		this.t.addProduct(new WildPigRoast());
-		this.t.addProduct(new WildPigRoast());
+		try {
+			this.t.addProduct(new WildPigRoast());
+			this.t.addProduct(new WildPigRoast());
+			this.t.addProduct(new WildPigRoast());
+			this.t.addProduct(new WildPigRoast());
+			this.t.addProduct(new WildPigRoast());
+		} catch (FullStorageException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
 

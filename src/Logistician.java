@@ -31,7 +31,12 @@ public class Logistician extends Employee implements Runnable {
 			e.printStackTrace();
 		}
 		
-		this.vs.addProduct(new OxBarrow());
+		try {
+			this.vs.addProduct(new OxBarrow());
+		} catch (FullStorageException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	@Override

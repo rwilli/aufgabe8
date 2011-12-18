@@ -14,30 +14,19 @@ public abstract class Storage<T> {
 		return this.maxLstSize;
 	}
 	
-	public synchronized void addProduct(T element) {
-		// TODO place exception if number > as size
+	public synchronized void addProduct(T element) throws FullStorageException {
 		System.out.println("storing...");	
 		
 		if (this.lstProducts.size() < this.maxLstSize) {
 			this.lstProducts.add(element);
 			this.notifyAll();
-		} else {
-			// no place in storage
-			System.out.println("no place!!!");
-			
-			/*try {
-				Thread.sleep(30);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}*/
-		}
+		} else 
+			throw new FullStorageException("Storage is full");
 	}
 	
 	public synchronized void removeProduct() throws EmptyStorageException {
 		System.out.println("removing...");
 		
-		// TODO place perhaps exception
 		try {
 			this.wait();
 		} catch (InterruptedException e) {
@@ -45,10 +34,10 @@ public abstract class Storage<T> {
 			e.printStackTrace();
 		}
 		
-		if (this.lstProducts.size() == 0)
-			throw new EmptyStorageException("Storage is empty");
-		else
+		if (this.lstProducts.size() > 0)
 			this.lstProducts.remove(0);
+		else
+			throw new EmptyStorageException("Storage is empty");
 	}
 	
 }

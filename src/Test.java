@@ -15,7 +15,7 @@ public class Test {
 		VillageSquare<OxBarrow> vs1 = new VillageSquare<OxBarrow>(20);
 		
 		WildPigHunter wph1 = new WildPigHunter("Hunter1", 5, rw1);
-		WildPigHunter wph2 = new WildPigHunter("Hunter2", 8, rw1);
+		/*WildPigHunter wph2 = new WildPigHunter("Hunter2", 8, rw1);
 		WildPigHunter wph3 = new WildPigHunter("Hunter3", 2, rw1);
 		
 		Cook ck1 = new Cook("Cook1", rw1, t1);
@@ -28,7 +28,7 @@ public class Test {
 		
 		Logistician l1 = new Logistician("Logistician1", sp1, vs1);
 		Logistician l2 = new Logistician("Logistician2", sp1, vs1);
-		
+		*/
 	}
 
 }
