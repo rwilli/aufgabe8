@@ -13,8 +13,8 @@ public class Logistician extends Employee implements Runnable {
 	public void run() {
 		System.out.println(this + " is loading...");
 		
-		this.sp.getLstProducts().remove(0);
-		this.sp.getLstProducts().remove(0);
+		this.sp.removeProduct();
+		this.sp.removeProduct();
 		this.vs.addProduct(new OxBarrow());
 	}
 	

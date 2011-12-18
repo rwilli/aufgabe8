@@ -9,16 +9,12 @@ public abstract class Storage<T> {
 	public Storage(int size) {
 		this.maxLstSize = size;
 	}
-
-	public List<T> getLstProducts() {
-		return this.lstProducts;
-	}
 	
 	public int getMaxLstSize() {
 		return this.maxLstSize;
 	}
 	
-	synchronized public void addProduct(T element) {
+	public synchronized void addProduct(T element) {
 		// TODO place exception if number > as size
 		System.out.println("storing...");	
 		
@@ -35,6 +31,12 @@ public abstract class Storage<T> {
 				e.printStackTrace();
 			}
 		}
+	}
+	
+	public synchronized void removeProduct() {
+		// TODO place perhaps exception
+		System.out.println("removing...");
+		this.lstProducts.remove(0);
 	}
 	
 }
