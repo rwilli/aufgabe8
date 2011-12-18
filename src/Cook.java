@@ -11,7 +11,15 @@ public class Cook extends Employee implements Runnable {
 
 	@Override
 	public void run() {
-		System.out.println(this);
+		System.out.println(this + " is cooking...");
+		
+		// TODO place exception
+		this.rw.getLstProducts().remove(0);
+		this.t.addProduct(new WildPigRoast());
+		this.t.addProduct(new WildPigRoast());
+		this.t.addProduct(new WildPigRoast());
+		this.t.addProduct(new WildPigRoast());
+		this.t.addProduct(new WildPigRoast());
 	}
 
 	@Override

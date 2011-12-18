@@ -9,7 +9,7 @@ public class Test {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		RefrigeratedWarehouse<WildPig> rw1 = new RefrigeratedWarehouse<WildPig>(10);
+		RefrigeratedWarehouse<WildPig> rw1 = new RefrigeratedWarehouse<WildPig>(2);
 		Table<WildPigRoast> t1 = new Table<WildPigRoast>(20);
 		StonePit<ChristmasTree> sp1 = new StonePit<ChristmasTree>(15);
 		VillageSquare<OxBarrow> vs1 = new VillageSquare<OxBarrow>(20);
@@ -44,28 +44,29 @@ public class Test {
 		td1.start();
 	    td2.start();
 	    td3.start();
-	    
-	    /*td4.start();
+	    td4.start();
 	    td5.start();
 	    td6.start();
 	    td7.start();
 	    td8.start();
 	    td9.start();
 	    td10.start();
-	    td11.start();*/
+	    td11.start();
 	    
 	    try {
-			td2.sleep(30);
+			Thread.sleep(20);
+			/*Thread.sleep(100);
+			//td2.sleep(5);
+			//td3.sleep(10);*/
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	    
+		
 	    System.out.println(rw1.lstProducts.size());
-	    
-	    //t.stop();
-	    //t2.stop();
-	    
+	    System.out.println(t1.lstProducts.size());
+	    System.out.println(sp1.lstProducts.size());
+	    System.out.println(vs1.lstProducts.size());
 	}
 
 }

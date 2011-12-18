@@ -12,6 +12,9 @@ public class WildPigHunter extends Employee implements Runnable {
 	@Override
 	public void run() {
 		System.out.println(this + " is hunting...");
+		
+		this.st.addProduct(new WildPig());
+		
 	}
 
 	@Override

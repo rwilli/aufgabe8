@@ -11,8 +11,10 @@ public class Woodman extends Employee implements Runnable {
 
 	@Override
 	public void run() {
-		System.out.println(this);
+		System.out.println(this + " is working...");
 		
+		this.t.getLstProducts().remove(0);
+		this.s.getLstProducts().add(new ChristmasTree());
 	}
 
 	@Override
