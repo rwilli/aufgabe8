@@ -1,34 +1,68 @@
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ * The class Storage acts as base class
+ * for storage sub-types
+ * 
+ * @author Gruppe222
+ *
+ */
 public abstract class Storage<T> {
+	// list with products
 	protected List<T> lstProducts = new ArrayList<T>();
-	protected final int maxLstSize;
 	
+	// size of the list
+	protected final int lstSize;
+	
+	/**
+	 * constructor with given list size
+	 * 
+	 * @param size size of the list
+	 */
 	public Storage(int size) {
-		this.maxLstSize = size;
+		this.lstSize = size;
 	}
 	
+	/**
+	 * getter for product list
+	 * 
+	 * @return list of products
+	 */
 	public List<T> getLstProducts() {
 		return this.lstProducts;
 	}
 	
+	/**
+	 * getter for list size
+	 * 
+	 * @return size of the list
+	 */
 	public int getMaxLstSize() {
-		return this.maxLstSize;
+		return this.lstSize;
 	}
 	
-	public synchronized void addProduct(T element) throws FullStorageException {
-		System.out.println("storing... " + element.toString());	
+	/**
+	 * add product to the list
+	 * 
+	 * @param product product to adde
+	 * @throws FullStorageException
+	 */
+	public synchronized void addProduct(T product) throws FullStorageException {
+		System.out.println("storing... " + product.toString());	
 		
-		if (this.lstProducts.size() < this.maxLstSize) {
-			this.lstProducts.add(element);
+		if (this.lstProducts.size() < this.lstSize) {
+			this.lstProducts.add(product);
 			this.notifyAll();
 		} else { 
 			throw new FullStorageException("Storage is full");
 		}
 	}
 	
+	/**
+	 * 
+	 * @throws EmptyStorageException
+	 */
 	public synchronized void removeProduct() throws EmptyStorageException {
 		System.out.println("removing...");
 		

@@ -40,16 +40,15 @@ public class WildPigHunter extends Employee implements Runnable {
 			
 			try {
 				this.st.addProduct(new WildPig());
-			} catch (FullStorageException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+			} catch (FullStorageException fe) {
+				System.out.println(fe.toString());
 			}
 			
+			// working
 			try {
 				Thread.sleep(this.workingTime);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+			} catch (InterruptedException ie) {
+				System.out.println("Thread interrupted...");
 			}
 			
 			counter++;

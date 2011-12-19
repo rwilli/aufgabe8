@@ -40,27 +40,25 @@ public class Cook extends Employee implements Runnable {
 			
 			try {
 				this.rw.removeProduct();
-			} catch (EmptyStorageException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
+			} catch (EmptyStorageException ee) {
+				System.out.println(ee.toString());
 			}
 			
+			// working
 			try {
-				Thread.sleep(200);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				Thread.sleep(this.workingTime);
+			} catch (InterruptedException ie) {
+				System.out.println("Thread interrupted...");
 			}
-			
+
 			try {
 				this.t.addProduct(new WildPigRoast());
 				this.t.addProduct(new WildPigRoast());
 				this.t.addProduct(new WildPigRoast());
 				this.t.addProduct(new WildPigRoast());
 				this.t.addProduct(new WildPigRoast());
-			} catch (FullStorageException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+			} catch (FullStorageException fe) {
+				System.out.println(fe.toString());
 			}
 			counter++;
 		}
