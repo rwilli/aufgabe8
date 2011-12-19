@@ -10,6 +10,10 @@ public abstract class Storage<T> {
 		this.maxLstSize = size;
 	}
 	
+	public List<T> getLstProducts() {
+		return this.lstProducts;
+	}
+	
 	public int getMaxLstSize() {
 		return this.maxLstSize;
 	}
@@ -20,24 +24,32 @@ public abstract class Storage<T> {
 		if (this.lstProducts.size() < this.maxLstSize) {
 			this.lstProducts.add(element);
 			this.notifyAll();
-		} else 
+		} else { 
+			/*try {
+				this.wait();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}*/
 			throw new FullStorageException("Storage is full");
+		}
 	}
 	
 	public synchronized void removeProduct() throws EmptyStorageException {
 		System.out.println("removing...");
 		
-		try {
-			this.wait();
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		if (this.lstProducts.size() > 0)
+		if (!this.lstProducts.isEmpty()) {
 			this.lstProducts.remove(0);
-		else
+			//this.notifyAll();
+		} else {
+			/*try {
+				this.wait();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}*/
 			throw new EmptyStorageException("Storage is empty");
+		}
 	}
 	
 }

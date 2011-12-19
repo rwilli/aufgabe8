@@ -14,34 +14,37 @@ public class Cook extends Employee implements Runnable {
 
 	@Override
 	public void run() {
-		System.out.println(this + " is cooking...");
-		
+		int counter = 0;
 		// TODO place exception
-		try {
-			this.rw.removeProduct();
-		} catch (EmptyStorageException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
+		while (counter < this.rw.getMaxLstSize()) {
+			System.out.println(this + " is cooking...");
+			
+			try {
+				this.rw.removeProduct();
+			} catch (EmptyStorageException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			
+			try {
+				Thread.sleep(200);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			try {
+				this.t.addProduct(new WildPigRoast());
+				this.t.addProduct(new WildPigRoast());
+				this.t.addProduct(new WildPigRoast());
+				this.t.addProduct(new WildPigRoast());
+				this.t.addProduct(new WildPigRoast());
+			} catch (FullStorageException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			counter++;
 		}
-		
-		try {
-			Thread.sleep(200);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		try {
-			this.t.addProduct(new WildPigRoast());
-			this.t.addProduct(new WildPigRoast());
-			this.t.addProduct(new WildPigRoast());
-			this.t.addProduct(new WildPigRoast());
-			this.t.addProduct(new WildPigRoast());
-		} catch (FullStorageException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
 	}
 
 	@Override
