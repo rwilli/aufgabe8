@@ -43,6 +43,7 @@ public class Test {
 		
 		th1.start();
 		th2.start();
+		th1.interrupt();
 		th3.start();
 		th4.start();
 		th5.start();

@@ -62,7 +62,7 @@ public abstract class Storage<T> {
 			try {
 				this.wait();
 			} catch (InterruptedException e) {
-				System.out.println("Thread interrupted...");
+				System.out.println("Thread interrupted in add... " + this.lstProducts.size());
 			}
 		}
 	}
@@ -85,7 +85,7 @@ public abstract class Storage<T> {
 			try {
 				this.wait();
 			} catch (InterruptedException e) {
-				System.out.println("Thread interrupted...");
+				System.out.println("Thread interrupted in remove... " + this.lstProducts.size());
 			}
 		}
 	}
