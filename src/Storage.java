@@ -55,7 +55,15 @@ public abstract class Storage<T> {
 			this.lstProducts.add(product);
 			this.notifyAll();
 		} else { 
-			throw new FullStorageException("Storage is full");
+			// hier sollte der Thread warten bis wieder Platz ist
+			// exception einmal auskommentieren und mit wait()
+			// thread warten lassen
+			//throw new FullStorageException("Storage is full");
+			try {
+				this.wait();
+			} catch (InterruptedException e) {
+				System.out.println("Thread interrupted...");
+			}
 		}
 	}
 	
@@ -70,7 +78,15 @@ public abstract class Storage<T> {
 			this.lstProducts.remove(0);
 			this.notifyAll();
 		} else {
-			throw new EmptyStorageException("Storage is empty");
+			// hier sollte der Thread warten bis es wieder Produkte gibt
+			// exception einmal auskommentieren und mit wait()
+			// thread warten lassen
+			//throw new EmptyStorageException("Storage is empty");
+			try {
+				this.wait();
+			} catch (InterruptedException e) {
+				System.out.println("Thread interrupted...");
+			}
 		}
 	}
 	

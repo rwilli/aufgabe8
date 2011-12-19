@@ -36,6 +36,10 @@ public class Test {
 		Thread th5 = new Thread(wm1);
 		Thread th6 = new Thread(wm2);
 		Thread th7 = new Thread(wm3);
+		Thread th8 = new Thread(wm4);
+		Thread th9 = new Thread(wm5);
+		Thread th10 = new Thread(l1);
+		Thread th11 = new Thread(l2);
 		
 		th1.start();
 		th2.start();
@@ -44,6 +48,10 @@ public class Test {
 		th5.start();
 		th6.start();
 		th7.start();
+		th8.start();
+		th9.start();
+		th10.start();
+		th11.start();
 	}
 
 }
