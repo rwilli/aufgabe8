@@ -25,14 +25,7 @@ public abstract class Storage<T> {
 			this.lstProducts.add(element);
 			this.notifyAll();
 		} else { 
-			try {
-				this.wait();
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			this.notifyAll();
-			//throw new FullStorageException("Storage is full");
+			throw new FullStorageException("Storage is full");
 		}
 	}
 	
@@ -43,14 +36,7 @@ public abstract class Storage<T> {
 			this.lstProducts.remove(0);
 			this.notifyAll();
 		} else {
-			try {
-				this.wait();
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			this.notifyAll();
-			//throw new EmptyStorageException("Storage is empty");
+			throw new EmptyStorageException("Storage is empty");
 		}
 	}
 	

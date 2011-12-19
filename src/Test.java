@@ -9,7 +9,7 @@ public class Test {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		RefrigeratedWarehouse<WildPig> rw1 = new RefrigeratedWarehouse<WildPig>(20);
+		RefrigeratedWarehouse<WildPig> rw1 = new RefrigeratedWarehouse<WildPig>(5);
 		Table<WildPigRoast> t1 = new Table<WildPigRoast>(20);
 		StonePit<ChristmasTree> sp1 = new StonePit<ChristmasTree>(15);
 		VillageSquare<OxBarrow> vs1 = new VillageSquare<OxBarrow>(20);
@@ -31,9 +31,11 @@ public class Test {
 		
 		Thread th1 = new Thread(wph1);
 		Thread th2 = new Thread(wph2);
+		Thread th3 = new Thread(wph3);
 		
 		th1.start();
 		th2.start();
+		th3.start();
 		
 	}
 
