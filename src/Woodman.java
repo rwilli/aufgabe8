@@ -33,15 +33,12 @@ public class Woodman extends Employee implements Runnable {
 	 */
 	@Override
 	public void run() {
-		System.out.println(this + " is working...");
+		
 		
 		// TODO place exception
-		try {
+	
 			this.t.removeProduct();
-		} catch (EmptyStorageException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
+			System.out.println(this + " is working...");
 		
 		try {
 			Thread.sleep(300);
@@ -50,12 +47,9 @@ public class Woodman extends Employee implements Runnable {
 			e.printStackTrace();
 		}
 		
-		try {
+		
 			this.s.addProduct(new ChristmasTree());
-		} catch (FullStorageException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
 	}
 
 	/*

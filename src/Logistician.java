@@ -33,15 +33,12 @@ public class Logistician extends Employee implements Runnable {
 	 */
 	@Override
 	public void run() {
-		System.out.println(this + " is loading...");
 		
-		try {
+		
+		
 			this.sp.removeProduct();
 			this.sp.removeProduct();
-		} catch (EmptyStorageException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+			System.out.println(this + " is loading...");
 		
 		try {
 			Thread.sleep(200);
@@ -50,12 +47,9 @@ public class Logistician extends Employee implements Runnable {
 			e.printStackTrace();
 		}
 		
-		try {
+		
 			this.vs.addProduct(new OxBarrow());
-		} catch (FullStorageException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
 	}
 	
 	/*

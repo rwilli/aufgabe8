@@ -48,22 +48,21 @@ public abstract class Storage<T> {
 	 * @param product product to adde
 	 * @throws FullStorageException
 	 */
-	public synchronized void addProduct(T product) throws FullStorageException {
-		System.out.println("storing... " + product.toString());	
+	public synchronized void addProduct(T product) {
+		
 		
 		if (this.lstProducts.size() < this.lstSize) {
 			this.lstProducts.add(product);
-			this.notifyAll();
+			System.out.println("storing... " + product.toString());	
 		} else { 
-			// hier sollte der Thread warten bis wieder Platz ist
-			// exception einmal auskommentieren und mit wait()
-			// thread warten lassen
-			//throw new FullStorageException("Storage is full");
+			System.out.println(this.getClass().getName() + "  Storage full, wait");
 			try {
 				this.wait();
 			} catch (InterruptedException e) {
-				System.out.println("Thread interrupted in add... " + this.lstProducts.size());
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
+
 		}
 	}
 	
@@ -71,21 +70,21 @@ public abstract class Storage<T> {
 	 * 
 	 * @throws EmptyStorageException
 	 */
-	public synchronized void removeProduct() throws EmptyStorageException {
-		System.out.println("removing...");
+	public synchronized void removeProduct() {
+		
 		
 		if (!this.lstProducts.isEmpty()) {
 			this.lstProducts.remove(0);
+			System.out.println("removing at  " + this.getClass().getName());
 			this.notifyAll();
 		} else {
-			// hier sollte der Thread warten bis es wieder Produkte gibt
-			// exception einmal auskommentieren und mit wait()
-			// thread warten lassen
-			//throw new EmptyStorageException("Storage is empty");
+			
+			System.out.println(this.getClass().getName() + "  Storage empty, wait");
 			try {
 				this.wait();
 			} catch (InterruptedException e) {
-				System.out.println("Thread interrupted in remove... " + this.lstProducts.size());
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
 		}
 	}

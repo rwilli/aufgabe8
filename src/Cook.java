@@ -35,14 +35,14 @@ public class Cook extends Employee implements Runnable {
 	public void run() {
 		int counter = 0;
 		// TODO place exception
-		while (counter < this.rw.getMaxLstSize()) {
-			System.out.println(this + " is cooking...");
+		while (true) {
 			
-			try {
+			
+		
 				this.rw.removeProduct();
-			} catch (EmptyStorageException ee) {
-				System.out.println(ee.toString());
-			}
+				System.out.println(this + " is cooking...");
+			
+		
 			
 			// working
 			try {
@@ -51,15 +51,13 @@ public class Cook extends Employee implements Runnable {
 				System.out.println("Thread interrupted...");
 			}
 
-			try {
+	
 				this.t.addProduct(new WildPigRoast());
 				this.t.addProduct(new WildPigRoast());
 				this.t.addProduct(new WildPigRoast());
 				this.t.addProduct(new WildPigRoast());
 				this.t.addProduct(new WildPigRoast());
-			} catch (FullStorageException fe) {
-				System.out.println(fe.toString());
-			}
+			
 			counter++;
 		}
 	}

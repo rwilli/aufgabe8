@@ -36,13 +36,14 @@ public class WildPigHunter extends Employee implements Runnable {
 		int counter = 0;
 		
 		while (counter < this.countHunting) {
-			System.out.println(this + " is hunting...");
 			
-			try {
+			
+		
 				this.st.addProduct(new WildPig());
-			} catch (FullStorageException fe) {
-				System.out.println(fe.toString());
-			}
+				System.out.println(this + " is hunting...");
+				counter++;
+			
+			
 			
 			// working
 			try {
@@ -51,7 +52,7 @@ public class WildPigHunter extends Employee implements Runnable {
 				System.out.println(this + " Thread interrupted...");
 			}
 			
-			counter++;
+			
 		}
 	}
 

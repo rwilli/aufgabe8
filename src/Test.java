@@ -16,7 +16,6 @@ public class Test {
 		
 		WildPigHunter wph1 = new WildPigHunter("Hunter1", 10, 5, rw1);
 		WildPigHunter wph2 = new WildPigHunter("Hunter2", 20, 8, rw1);
-		WildPigHunter wph3 = new WildPigHunter("Hunter3", 15, 2, rw1);
 		
 		Cook ck1 = new Cook("Cook1", 30, rw1, t1);
 		
@@ -31,7 +30,6 @@ public class Test {
 		
 		Thread th1 = new Thread(wph1);
 		Thread th2 = new Thread(wph2);
-		Thread th3 = new Thread(wph3);
 		Thread th4 = new Thread(ck1);
 		Thread th5 = new Thread(wm1);
 		Thread th6 = new Thread(wm2);
@@ -44,7 +42,6 @@ public class Test {
 		th1.start();
 		th2.start();
 		th1.interrupt();
-		th3.start();
 		th4.start();
 		th5.start();
 		th6.start();
