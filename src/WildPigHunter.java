@@ -10,7 +10,7 @@ public class WildPigHunter extends Employee implements Runnable {
 	private final int countHunting;
 	
 	// storage to put products
-	private RefrigeratedWarehouse<WildPig> st;
+	private RefrigeratedWarehouse<WildPig> rw;
 	
 	/**
 	 * constructor with given name,
@@ -21,10 +21,10 @@ public class WildPigHunter extends Employee implements Runnable {
 	 * @param size amount of hunting trips
 	 * @param st storage to put products to
 	 */
-	public WildPigHunter(String name, int time, int number, RefrigeratedWarehouse<WildPig> st) {
+	public WildPigHunter(String name, int time, int number, RefrigeratedWarehouse<WildPig> rw) {
 		super(name, time);
 		this.countHunting = number;
-		this.st = st;
+		this.rw = rw;
 	}
 
 	/*
@@ -39,7 +39,7 @@ public class WildPigHunter extends Employee implements Runnable {
 			
 			
 		
-				this.st.addProduct(new WildPig());
+				this.rw.addProduct(new WildPig());
 				System.out.println(this + " is hunting...");
 				counter++;
 			
@@ -54,6 +54,12 @@ public class WildPigHunter extends Employee implements Runnable {
 			
 			
 		}
+		
+		rw.isOpen = false;
+		System.out.println(name + "  finished run");
+
+		
+		
 	}
 
 	/*

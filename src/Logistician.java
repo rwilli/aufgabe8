@@ -7,10 +7,10 @@
  */
 public class Logistician extends Employee implements Runnable {
 	// storage to get products
-	private StonePit<ChristmasTree> sp;
+	private StonePit<ChristmasTree> s;
 	
 	// storage to put products
-	private VillageSquare<OxBarrow> vs;
+	private VillageSquare<OxBarrow> v;
 	
 	/**
 	 * constructor with given name,
@@ -23,8 +23,8 @@ public class Logistician extends Employee implements Runnable {
 	 */
 	public Logistician(String name, int time, StonePit<ChristmasTree> s, VillageSquare<OxBarrow> v) {
 		super(name, time);
-		this.sp = s;
-		this.vs = v;
+		this.s = s;
+		this.v = v;
 	}
 
 	/*
@@ -34,11 +34,10 @@ public class Logistician extends Employee implements Runnable {
 	@Override
 	public void run() {
 		
-		
-		
-			this.sp.removeProduct();
-			this.sp.removeProduct();
-			System.out.println(this + " is loading...");
+	while(!s.getLstProducts().isEmpty() || s.isOpen){	
+		System.out.println(this + " is loading...");		
+			this.s.removeProduct();
+			this.s.removeProduct();
 		
 		try {
 			Thread.sleep(200);
@@ -48,9 +47,14 @@ public class Logistician extends Employee implements Runnable {
 		}
 		
 		
-			this.vs.addProduct(new OxBarrow());
+			this.v.addProduct(new OxBarrow());
 		
 	}
+	v.isOpen = false;
+	System.out.println(name + "  finished run");
+
+	
+}
 	
 	/*
 	 * (non-Javadoc)

@@ -15,6 +15,9 @@ public abstract class Storage<T> {
 	// size of the list
 	protected final int lstSize;
 	
+	// TODO nicht hier sonder für alle employee prüfen ob sie fertig sind
+	protected boolean isOpen;
+	
 	/**
 	 * constructor with given list size
 	 * 
@@ -22,6 +25,7 @@ public abstract class Storage<T> {
 	 */
 	public Storage(int size) {
 		this.lstSize = size;
+		this.isOpen = true;
 	}
 	
 	/**
@@ -53,11 +57,13 @@ public abstract class Storage<T> {
 		
 		if (this.lstProducts.size() < this.lstSize) {
 			this.lstProducts.add(product);
+			this.notifyAll();
 			System.out.println("storing... " + product.toString());	
 		} else { 
 			System.out.println(this.getClass().getName() + "  Storage full, wait");
 			try {
-				this.wait();
+				while ( this.lstProducts.size() >= this.lstSize )
+					this.wait();
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -81,7 +87,9 @@ public abstract class Storage<T> {
 			
 			System.out.println(this.getClass().getName() + "  Storage empty, wait");
 			try {
-				this.wait();
+				while ( this.lstProducts.isEmpty() )
+					  this.wait();
+					  
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

@@ -36,9 +36,9 @@ public class Woodman extends Employee implements Runnable {
 		
 		
 		// TODO place exception
-	
+	while( !t.getLstProducts().isEmpty() || t.isOpen){
 			this.t.removeProduct();
-			System.out.println(this + " is working...");
+			System.out.println(this.getClass().getName() + " is working...");
 		
 		try {
 			Thread.sleep(300);
@@ -50,7 +50,12 @@ public class Woodman extends Employee implements Runnable {
 		
 			this.s.addProduct(new ChristmasTree());
 		
-	}
+		}
+	
+	s.isOpen = false;
+	System.out.println(name + "  finished run");
+
+}
 
 	/*
 	 * (non-Javadoc)

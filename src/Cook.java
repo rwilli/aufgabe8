@@ -35,12 +35,11 @@ public class Cook extends Employee implements Runnable {
 	public void run() {
 		int counter = 0;
 		// TODO place exception
-		while (true) {
+		while ( !rw.getLstProducts().isEmpty() || rw.isOpen) {
 			
 			
-		
-				this.rw.removeProduct();
-				System.out.println(this + " is cooking...");
+			System.out.println(this + " is cooking...");
+			this.rw.removeProduct();
 			
 		
 			
@@ -60,6 +59,9 @@ public class Cook extends Employee implements Runnable {
 			
 			counter++;
 		}
+		
+		t.isOpen = false;
+		System.out.println(name + "  finished run");
 	}
 
 	/*
