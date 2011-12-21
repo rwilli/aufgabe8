@@ -42,6 +42,7 @@ public class Woodman extends Employee implements Runnable {
 				Thread.sleep(300);
 			} catch (InterruptedException e) {
 				System.out.println(this + " Thread interrupted...");
+				Thread.interrupted();
 			}
 
 			this.s.addProduct(new ChristmasTree());

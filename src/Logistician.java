@@ -44,6 +44,7 @@ public class Logistician extends Employee implements Runnable {
 				Thread.sleep(200);
 			} catch (InterruptedException e) {
 				System.out.println("Thread interrupted...");
+				Thread.interrupted();
 			}
 
 			this.v.addProduct(new OxBarrow());

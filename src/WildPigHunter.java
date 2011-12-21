@@ -45,6 +45,7 @@ public class WildPigHunter extends Employee implements Runnable {
 				Thread.sleep(this.workingTime);
 			} catch (InterruptedException ie) {
 				System.out.println(this + " Thread interrupted...");
+				Thread.interrupted();
 			}
 		}
 		

@@ -42,6 +42,7 @@ public class Cook extends Employee implements Runnable {
 				Thread.sleep(this.workingTime);
 			} catch (InterruptedException ie) {
 				System.out.println("Thread interrupted...");
+				Thread.interrupted();
 			}
 
 			this.t.addProduct(new WildPigRoast());

@@ -64,6 +64,7 @@ public abstract class Storage<T> {
 					this.wait();
 			} catch (InterruptedException e) {
 				System.out.println(this.getClass().getName() + "Thread interrupted...");
+				Thread.interrupted();
 			}
 
 		}
@@ -89,8 +90,8 @@ public abstract class Storage<T> {
 					  this.wait();
 					  
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				System.out.println(this.getClass().getName() + "Thread interrupted...");
+				Thread.interrupted();
 			}
 		}
 	}
