@@ -34,28 +34,24 @@ public class Logistician extends Employee implements Runnable {
 	 */
 	@Override
 	public void run() {
-		
-	while(!s.getLstProducts().isEmpty() || s.isOpen){	
-		System.out.println(this + " is loading...");		
+		while(!s.getLstProducts().isEmpty() || s.isOpen){	
+			System.out.println(this + " is loading...");		
 			this.s.removeProduct();
 			this.s.removeProduct();
-		
-		try {
-			Thread.sleep(200);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		
-			this.v.addProduct(new OxBarrow());
-		
-	}
-	v.isOpen = false;
-	System.out.println(name + "  finished run");
 
-	
-}
+			// working
+			try {
+				Thread.sleep(200);
+			} catch (InterruptedException e) {
+				System.out.println("Thread interrupted...");
+			}
+
+			this.v.addProduct(new OxBarrow());
+		}
+
+		v.isOpen = false;
+		System.out.println(name + "  finished run");
+	}
 	
 	/*
 	 * (non-Javadoc)

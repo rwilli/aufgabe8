@@ -53,8 +53,6 @@ public abstract class Storage<T> {
 	 * @throws FullStorageException
 	 */
 	public synchronized void addProduct(T product) {
-		
-		
 		if (this.lstProducts.size() < this.lstSize) {
 			this.lstProducts.add(product);
 			this.notifyAll();
@@ -65,8 +63,7 @@ public abstract class Storage<T> {
 				while ( this.lstProducts.size() >= this.lstSize )
 					this.wait();
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				System.out.println(this.getClass().getName() + "Thread interrupted...");
 			}
 
 		}

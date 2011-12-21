@@ -1,4 +1,5 @@
 /**
+ * Testclass
  * 
  * @author Gruppe222
  *
@@ -72,7 +73,7 @@ public class Test {
 		//TODO
 		
 		
-		//Unternehmens auflšsung
+		// Unternehmens auflšsung
 		// interrupt all
 		
 		th1.interrupt();

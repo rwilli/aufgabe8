@@ -33,16 +33,10 @@ public class Cook extends Employee implements Runnable {
 	 */
 	@Override
 	public void run() {
-		int counter = 0;
-		// TODO place exception
 		while ( !rw.getLstProducts().isEmpty() || rw.isOpen) {
-			
-			
 			System.out.println(this + " is cooking...");
 			this.rw.removeProduct();
-			
-		
-			
+
 			// working
 			try {
 				Thread.sleep(this.workingTime);
@@ -50,14 +44,11 @@ public class Cook extends Employee implements Runnable {
 				System.out.println("Thread interrupted...");
 			}
 
-	
-				this.t.addProduct(new WildPigRoast());
-				this.t.addProduct(new WildPigRoast());
-				this.t.addProduct(new WildPigRoast());
-				this.t.addProduct(new WildPigRoast());
-				this.t.addProduct(new WildPigRoast());
-			
-			counter++;
+			this.t.addProduct(new WildPigRoast());
+			this.t.addProduct(new WildPigRoast());
+			this.t.addProduct(new WildPigRoast());
+			this.t.addProduct(new WildPigRoast());
+			this.t.addProduct(new WildPigRoast());
 		}
 		
 		t.isOpen = false;

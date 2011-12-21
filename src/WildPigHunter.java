@@ -36,30 +36,20 @@ public class WildPigHunter extends Employee implements Runnable {
 		int counter = 0;
 		
 		while (counter < this.countHunting) {
-			
-			
-		
-				this.rw.addProduct(new WildPig());
-				System.out.println(this + " is hunting...");
-				counter++;
-			
-			
-			
+			this.rw.addProduct(new WildPig());
+			System.out.println(this + " is hunting...");
+			counter++;
+
 			// working
 			try {
 				Thread.sleep(this.workingTime);
 			} catch (InterruptedException ie) {
 				System.out.println(this + " Thread interrupted...");
 			}
-			
-			
 		}
 		
 		rw.isOpen = false;
-		System.out.println(name + "  finished run");
-
-		
-		
+		System.out.println(this + "  finished run");
 	}
 
 	/*
