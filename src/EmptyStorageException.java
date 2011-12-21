@@ -1,5 +1,5 @@
 /**
- * Class EmptyStorage Exception extends Exception
+ * Class EmptyStorageException extends Exception
  * 
  * @author Gruppe222
  * 

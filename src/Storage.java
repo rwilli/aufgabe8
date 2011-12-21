@@ -49,7 +49,7 @@ public abstract class Storage<T> {
 	/**
 	 * add product to the list
 	 * 
-	 * @param product product to adde
+	 * @param product product to add
 	 * @throws FullStorageException
 	 */
 	public synchronized void addProduct(T product) {
@@ -83,6 +83,7 @@ public abstract class Storage<T> {
 			this.lstProducts.remove(0);
 			System.out.println("removing at  " + this.getClass().getName());
 			this.notifyAll();
+			
 		} else {
 			
 			System.out.println(this.getClass().getName() + "  Storage empty, wait");

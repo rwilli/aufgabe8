@@ -6,6 +6,7 @@
  *
  */
 public class Logistician extends Employee implements Runnable {
+	
 	// storage to get products
 	private StonePit<ChristmasTree> s;
 	
